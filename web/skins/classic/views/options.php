@@ -211,10 +211,13 @@ else
     {
         $shortName = preg_replace( '/^ZM_/', '', $name );
         $optionPromptText = !empty($OLANG[$shortName])?$OLANG[$shortName]:$value['Prompt'];
+
+	$optionHelpText = !empty($OLANG[$shortName])?$OLANG[$shortName]:$config[$name]['Help'];
+	$optionHelpText = preg_replace( "/~~/", "\n", $optionHelpText );
 ?>
             <tr>
               <td><?= $shortName ?></td>
-              <td><?= validHtmlStr($optionPromptText) ?>&nbsp;(<?= makePopupLink( '?view=optionhelp&amp;option='.$name, 'zmOptionHelp', 'optionhelp', '?' ) ?>)</td>
+              <td><?= validHtmlStr($optionPromptText) ?>&nbsp;(<a href="#" onclick="alert(this.getAttribute('title'))" title="<?= htmlentities($optionHelpText) ?>)">?</a>)</td>
 <?php   
         if ( $value['Type'] == "boolean" )
         {
