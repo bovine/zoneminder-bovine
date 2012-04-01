@@ -266,7 +266,7 @@ else
                         $optionLabel = $optionValue = $option;
                     }
 ?>
-                <span><input type="radio" id="<?= $name.'_'.preg_replace( '/[^a-zA-Z0-9]/', '', $optionValue ) ?>" name="newConfig[<?= $name ?>]" value="<?= $optionValue ?>"<?php if ( $value['Value'] == $optionValue ) { ?> checked="checked"<?php } ?><?= $canEdit?'':' disabled="disabled"' ?>/>&nbsp;<?= htmlspecialchars($optionLabel) ?></span>
+                <span><input type="radio" id="<?= $name.'_'.preg_replace( '/[^a-zA-Z0-9]/', '', $optionValue ) ?>" name="newConfig[<?= $name ?>]" value="<?= $optionValue ?>"<?php if ( $value['Value'] == $optionValue ) { ?> checked="checked"<?php } ?><?= $canEdit?'':' disabled="disabled"' ?>/>&nbsp;<label for="<?= $name.'_'.preg_replace( '/[^a-zA-Z0-9]/', '', $optionValue ) ?>"><?= htmlspecialchars($optionLabel) ?></label></span>
 <?php
                 }
             }
